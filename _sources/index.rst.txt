@@ -12,7 +12,8 @@ Welcome to test_project's documentation!
 
    nb_a
    nb_b
-
+   bche_paper_background
+   bche_paper_summary
 
 Indices and tables
 ==================
