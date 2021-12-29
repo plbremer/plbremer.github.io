@@ -3,17 +3,22 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to test_project's documentation!
+A showcase of Parker's Projects in Datascience
 ========================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 1
+   :caption: Academic Works:
 
-   nb_a
-   nb_b
-   bche_paper_background
-   bche_paper_summary
+   binvestigate_paper
+   cfmid_paper
+   bche_paper
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Teaching
+   mushroom_v2
+
 
 Indices and tables
 ==================
