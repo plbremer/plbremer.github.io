@@ -8,7 +8,7 @@ A showcase of Parker's Projects in Datascience
 
 .. toctree::
    :maxdepth: 1
-   :caption: Academic Works:
+   :caption: Academic Works
 
    binvestigate_paper
    cfmid_paper
@@ -16,7 +16,7 @@ A showcase of Parker's Projects in Datascience
 
 .. toctree::
    :maxdepth: 1
-   :caption: Teaching:
+   :caption: Teaching
 
    mushroom_v2
 
