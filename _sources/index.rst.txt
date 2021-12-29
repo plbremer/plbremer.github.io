@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 A showcase of Parker's Projects in Datascience
-========================================
+==============================================
 
 .. toctree::
    :maxdepth: 1
@@ -16,7 +16,8 @@ A showcase of Parker's Projects in Datascience
 
 .. toctree::
    :maxdepth: 1
-   :caption: Teaching
+   :caption: Teaching:
+
    mushroom_v2
 
 
