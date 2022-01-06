@@ -13,7 +13,7 @@
    "id": "bf90cbc2",
    "metadata": {},
    "source": [
-    "This project is in active development. **A prototype front-end tool can found [here](http://18.117.249.163:8050/)**. Results are encoded and visualizations are in development, but it demonstrates a successful full-stack pipeline."
+    "This project is in active development. **A prototype front-end tool can found [HERE](http://18.117.249.163:8050/)**. Results are encoded and visualizations are in development, but it demonstrates a successful full-stack pipeline."
    ]
   },
   {
@@ -214,7 +214,7 @@
    "source": [
     "While the above is a very simple example, a similar approach is used for all hierarchies. Every possible combination is pre-computed (thanks to some set-logic and symmetry this ends up being fewer combinations than you expect!)\n",
     "\n",
-    "A prototype webtool can be found at [here](http://18.117.249.163:8050/). While the results are encoded and the visualizations are still in preparation, this demonstrates a funtioniong full-stack project."
+    "A prototype webtool can be found at [HERE](http://18.117.249.163:8050/). While the results are encoded and the visualizations are still in preparation, this demonstrates a funtioniong full-stack project."
    ]
   }
  ],
