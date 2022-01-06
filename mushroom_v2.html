@@ -49,7 +49,6 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Identifying Mushroom Classes: An Introductory End-to-End Project</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Goals/Anti-goals">Goals/Anti-goals</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Google-drive-stuff">Google drive stuff</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Roadmap">Roadmap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#A)-Obtain-dataset-from-the-internet">A) Obtain dataset from the internet</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Description:">Description:</a></li>
@@ -390,52 +389,6 @@ div.rendered_html tbody tr:hover {
 <li><p><strong>Anti-goal</strong>: Teach specific functions and specific arguments</p></li>
 </ul>
 </section>
-<section id="Google-drive-stuff">
-<h2>Google drive stuff<a class="headerlink" href="#Google-drive-stuff" title="Permalink to this headline"></a></h2>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
-<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Mounted at /content/drive
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="o">!</span>pip install umap-learn
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Requirement already satisfied: umap-learn in /usr/local/lib/python3.7/dist-packages (0.5.1)
-Requirement already satisfied: numpy&gt;=1.17 in /usr/local/lib/python3.7/dist-packages (from umap-learn) (1.19.5)
-Requirement already satisfied: pynndescent&gt;=0.5 in /usr/local/lib/python3.7/dist-packages (from umap-learn) (0.5.4)
-Requirement already satisfied: scipy&gt;=1.0 in /usr/local/lib/python3.7/dist-packages (from umap-learn) (1.4.1)
-Requirement already satisfied: numba&gt;=0.49 in /usr/local/lib/python3.7/dist-packages (from umap-learn) (0.51.2)
-Requirement already satisfied: scikit-learn&gt;=0.22 in /usr/local/lib/python3.7/dist-packages (from umap-learn) (0.22.2.post1)
-Requirement already satisfied: llvmlite&lt;0.35,&gt;=0.34.0.dev0 in /usr/local/lib/python3.7/dist-packages (from numba&gt;=0.49-&gt;umap-learn) (0.34.0)
-Requirement already satisfied: setuptools in /usr/local/lib/python3.7/dist-packages (from numba&gt;=0.49-&gt;umap-learn) (57.4.0)
-Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-packages (from pynndescent&gt;=0.5-&gt;umap-learn) (1.0.1)
-</pre></div></div>
-</div>
-</section>
 <section id="Roadmap">
 <h2>Roadmap<a class="headerlink" href="#Roadmap" title="Permalink to this headline"></a></h2>
 <ol class="upperalpha simple">
@@ -449,6 +402,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
 <h2>A) Obtain dataset from the internet<a class="headerlink" href="#A)-Obtain-dataset-from-the-internet" title="Permalink to this headline"></a></h2>
 <section id="Description:">
 <h3>Description:<a class="headerlink" href="#Description:" title="Permalink to this headline"></a></h3>
+<p>The dataset can be downloaded from <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/mushroom">https://archive.ics.uci.edu/ml/datasets/mushroom</a> Briefly, it contains</p>
 <ul class="simple">
 <li><p>23 species</p></li>
 <li><p>Coincidentally 23 features (columns)</p></li>
@@ -482,7 +436,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
 <li><p>update our usage of read_csv and check work again</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -492,17 +446,17 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># get a hard coded address for the file</span>
-<span class="n">mushroom_dataset_address</span><span class="o">=</span><span class="s1">&#39;/content/drive/MyDrive/agaricus-lepiota.csv&#39;</span>
+<span class="n">mushroom_dataset_address</span><span class="o">=</span><span class="s1">&#39;/home/rictuar/coding_projects/github_website/where_i_make_content/docs/source/files/agaricus-lepiota.csv&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -512,7 +466,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -522,7 +476,8 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
 <div>
@@ -553,9 +508,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <th>c</th>
       <th>n.1</th>
       <th>k</th>
-      <th>e</th>
-      <th>e.1</th>
-      <th>s.1</th>
+      <th>...</th>
       <th>s.2</th>
       <th>w</th>
       <th>w.1</th>
@@ -581,9 +534,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>c</td>
       <td>b</td>
       <td>k</td>
-      <td>e</td>
-      <td>c</td>
-      <td>s</td>
+      <td>...</td>
       <td>s</td>
       <td>w</td>
       <td>w</td>
@@ -607,9 +558,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>c</td>
       <td>b</td>
       <td>n</td>
-      <td>e</td>
-      <td>c</td>
-      <td>s</td>
+      <td>...</td>
       <td>s</td>
       <td>w</td>
       <td>w</td>
@@ -633,9 +582,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>c</td>
       <td>n</td>
       <td>n</td>
-      <td>e</td>
-      <td>e</td>
-      <td>s</td>
+      <td>...</td>
       <td>s</td>
       <td>w</td>
       <td>w</td>
@@ -659,9 +606,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>w</td>
       <td>b</td>
       <td>k</td>
-      <td>t</td>
-      <td>e</td>
-      <td>s</td>
+      <td>...</td>
       <td>s</td>
       <td>w</td>
       <td>w</td>
@@ -685,9 +630,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>c</td>
       <td>b</td>
       <td>n</td>
-      <td>e</td>
-      <td>c</td>
-      <td>s</td>
+      <td>...</td>
       <td>s</td>
       <td>w</td>
       <td>w</td>
@@ -701,8 +644,6 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
     </tr>
     <tr>
       <th>...</th>
-      <td>...</td>
-      <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -737,9 +678,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>c</td>
       <td>b</td>
       <td>y</td>
-      <td>e</td>
-      <td>?</td>
-      <td>s</td>
+      <td>...</td>
       <td>s</td>
       <td>o</td>
       <td>o</td>
@@ -763,9 +702,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>c</td>
       <td>b</td>
       <td>y</td>
-      <td>e</td>
-      <td>?</td>
-      <td>s</td>
+      <td>...</td>
       <td>s</td>
       <td>o</td>
       <td>o</td>
@@ -789,9 +726,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>c</td>
       <td>b</td>
       <td>n</td>
-      <td>e</td>
-      <td>?</td>
-      <td>s</td>
+      <td>...</td>
       <td>s</td>
       <td>o</td>
       <td>o</td>
@@ -815,9 +750,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>c</td>
       <td>n</td>
       <td>b</td>
-      <td>t</td>
-      <td>?</td>
-      <td>s</td>
+      <td>...</td>
       <td>k</td>
       <td>w</td>
       <td>w</td>
@@ -841,9 +774,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>c</td>
       <td>b</td>
       <td>y</td>
-      <td>e</td>
-      <td>?</td>
-      <td>s</td>
+      <td>...</td>
       <td>s</td>
       <td>o</td>
       <td>o</td>
@@ -861,7 +792,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -872,7 +803,8 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
 <div>
@@ -903,9 +835,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <th>7</th>
       <th>8</th>
       <th>9</th>
-      <th>10</th>
-      <th>11</th>
-      <th>12</th>
+      <th>...</th>
       <th>13</th>
       <th>14</th>
       <th>15</th>
@@ -931,9 +861,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>c</td>
       <td>n</td>
       <td>k</td>
-      <td>e</td>
-      <td>e</td>
-      <td>s</td>
+      <td>...</td>
       <td>s</td>
       <td>w</td>
       <td>w</td>
@@ -957,9 +885,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>c</td>
       <td>b</td>
       <td>k</td>
-      <td>e</td>
-      <td>c</td>
-      <td>s</td>
+      <td>...</td>
       <td>s</td>
       <td>w</td>
       <td>w</td>
@@ -983,9 +909,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>c</td>
       <td>b</td>
       <td>n</td>
-      <td>e</td>
-      <td>c</td>
-      <td>s</td>
+      <td>...</td>
       <td>s</td>
       <td>w</td>
       <td>w</td>
@@ -1009,9 +933,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>c</td>
       <td>n</td>
       <td>n</td>
-      <td>e</td>
-      <td>e</td>
-      <td>s</td>
+      <td>...</td>
       <td>s</td>
       <td>w</td>
       <td>w</td>
@@ -1035,9 +957,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>w</td>
       <td>b</td>
       <td>k</td>
-      <td>t</td>
-      <td>e</td>
-      <td>s</td>
+      <td>...</td>
       <td>s</td>
       <td>w</td>
       <td>w</td>
@@ -1072,8 +992,6 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>...</td>
       <td>...</td>
       <td>...</td>
-      <td>...</td>
-      <td>...</td>
     </tr>
     <tr>
       <th>8119</th>
@@ -1087,9 +1005,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>c</td>
       <td>b</td>
       <td>y</td>
-      <td>e</td>
-      <td>?</td>
-      <td>s</td>
+      <td>...</td>
       <td>s</td>
       <td>o</td>
       <td>o</td>
@@ -1113,9 +1029,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>c</td>
       <td>b</td>
       <td>y</td>
-      <td>e</td>
-      <td>?</td>
-      <td>s</td>
+      <td>...</td>
       <td>s</td>
       <td>o</td>
       <td>o</td>
@@ -1139,9 +1053,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>c</td>
       <td>b</td>
       <td>n</td>
-      <td>e</td>
-      <td>?</td>
-      <td>s</td>
+      <td>...</td>
       <td>s</td>
       <td>o</td>
       <td>o</td>
@@ -1165,9 +1077,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>c</td>
       <td>n</td>
       <td>b</td>
-      <td>t</td>
-      <td>?</td>
-      <td>s</td>
+      <td>...</td>
       <td>k</td>
       <td>w</td>
       <td>w</td>
@@ -1191,9 +1101,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>c</td>
       <td>b</td>
       <td>y</td>
-      <td>e</td>
-      <td>?</td>
-      <td>s</td>
+      <td>...</td>
       <td>s</td>
       <td>o</td>
       <td>o</td>
@@ -1216,7 +1124,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
 <li><p>check our work</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1229,7 +1137,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1239,7 +1147,8 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
 <div>
@@ -1270,8 +1179,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <th>7</th>
       <th>8</th>
       <th>9</th>
-      <th>10</th>
-      <th>12</th>
+      <th>...</th>
       <th>13</th>
       <th>14</th>
       <th>15</th>
@@ -1297,8 +1205,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>c</td>
       <td>n</td>
       <td>k</td>
-      <td>e</td>
-      <td>s</td>
+      <td>...</td>
       <td>s</td>
       <td>w</td>
       <td>w</td>
@@ -1322,8 +1229,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>c</td>
       <td>b</td>
       <td>k</td>
-      <td>e</td>
-      <td>s</td>
+      <td>...</td>
       <td>s</td>
       <td>w</td>
       <td>w</td>
@@ -1347,8 +1253,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>c</td>
       <td>b</td>
       <td>n</td>
-      <td>e</td>
-      <td>s</td>
+      <td>...</td>
       <td>s</td>
       <td>w</td>
       <td>w</td>
@@ -1372,8 +1277,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>c</td>
       <td>n</td>
       <td>n</td>
-      <td>e</td>
-      <td>s</td>
+      <td>...</td>
       <td>s</td>
       <td>w</td>
       <td>w</td>
@@ -1397,8 +1301,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>w</td>
       <td>b</td>
       <td>k</td>
-      <td>t</td>
-      <td>s</td>
+      <td>...</td>
       <td>s</td>
       <td>w</td>
       <td>w</td>
@@ -1433,7 +1336,6 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>...</td>
       <td>...</td>
       <td>...</td>
-      <td>...</td>
     </tr>
     <tr>
       <th>8119</th>
@@ -1447,8 +1349,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>c</td>
       <td>b</td>
       <td>y</td>
-      <td>e</td>
-      <td>s</td>
+      <td>...</td>
       <td>s</td>
       <td>o</td>
       <td>o</td>
@@ -1472,8 +1373,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>c</td>
       <td>b</td>
       <td>y</td>
-      <td>e</td>
-      <td>s</td>
+      <td>...</td>
       <td>s</td>
       <td>o</td>
       <td>o</td>
@@ -1497,8 +1397,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>c</td>
       <td>b</td>
       <td>n</td>
-      <td>e</td>
-      <td>s</td>
+      <td>...</td>
       <td>s</td>
       <td>o</td>
       <td>o</td>
@@ -1522,8 +1421,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>c</td>
       <td>n</td>
       <td>b</td>
-      <td>t</td>
-      <td>s</td>
+      <td>...</td>
       <td>k</td>
       <td>w</td>
       <td>w</td>
@@ -1547,8 +1445,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>c</td>
       <td>b</td>
       <td>y</td>
-      <td>e</td>
-      <td>s</td>
+      <td>...</td>
       <td>s</td>
       <td>o</td>
       <td>o</td>
@@ -1590,7 +1487,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
 <section id="Code">
 <h3>Code<a class="headerlink" href="#Code" title="Permalink to this headline"></a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1603,7 +1500,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1613,7 +1510,8 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
 <div>
@@ -1644,67 +1542,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <th>1_x</th>
       <th>2_f</th>
       <th>2_g</th>
-      <th>2_s</th>
-      <th>2_y</th>
-      <th>3_b</th>
-      <th>3_c</th>
-      <th>3_e</th>
-      <th>3_g</th>
-      <th>3_n</th>
-      <th>3_p</th>
-      <th>3_r</th>
-      <th>3_u</th>
-      <th>3_w</th>
-      <th>3_y</th>
-      <th>4_f</th>
-      <th>4_t</th>
-      <th>5_a</th>
-      <th>5_c</th>
-      <th>5_f</th>
-      <th>5_l</th>
-      <th>5_m</th>
-      <th>5_n</th>
-      <th>5_p</th>
-      <th>5_s</th>
-      <th>5_y</th>
-      <th>6_a</th>
-      <th>6_f</th>
-      <th>7_c</th>
-      <th>7_w</th>
-      <th>8_b</th>
-      <th>8_n</th>
-      <th>9_b</th>
       <th>...</th>
-      <th>15_n</th>
-      <th>15_o</th>
-      <th>15_p</th>
-      <th>15_w</th>
-      <th>15_y</th>
-      <th>16_p</th>
-      <th>17_n</th>
-      <th>17_o</th>
-      <th>17_w</th>
-      <th>17_y</th>
-      <th>18_n</th>
-      <th>18_o</th>
-      <th>18_t</th>
-      <th>19_e</th>
-      <th>19_f</th>
-      <th>19_l</th>
-      <th>19_n</th>
-      <th>19_p</th>
-      <th>20_b</th>
-      <th>20_h</th>
-      <th>20_k</th>
-      <th>20_n</th>
-      <th>20_o</th>
-      <th>20_r</th>
-      <th>20_u</th>
-      <th>20_w</th>
-      <th>20_y</th>
-      <th>21_a</th>
-      <th>21_c</th>
-      <th>21_n</th>
       <th>21_s</th>
       <th>21_v</th>
       <th>21_y</th>
@@ -1730,67 +1568,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>1</td>
       <td>0</td>
       <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -1814,67 +1592,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>1</td>
       <td>0</td>
       <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -1898,67 +1616,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -1982,67 +1640,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>1</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -2066,67 +1664,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>1</td>
       <td>0</td>
       <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2140,66 +1678,6 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
     </tr>
     <tr>
       <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -2234,67 +1712,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
       <td>...</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2318,67 +1736,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>1</td>
       <td>0</td>
       <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
       <td>...</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
       <td>0</td>
       <td>1</td>
       <td>0</td>
@@ -2402,67 +1760,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
       <td>...</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2486,67 +1784,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
       <td>0</td>
       <td>1</td>
       <td>0</td>
@@ -2570,67 +1808,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
       <td>1</td>
       <td>0</td>
       <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
       <td>...</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2666,7 +1844,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
 <h3>Giving parameters to K-means black box<a class="headerlink" href="#Giving-parameters-to-K-means-black-box" title="Permalink to this headline"></a></h3>
 <p>KMeans <em>requires</em> the number of clusters (23)</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2675,7 +1853,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2686,7 +1864,7 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2699,17 +1877,15 @@ Requirement already satisfied: joblib&gt;=0.11 in /usr/local/lib/python3.7/dist-
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-KMeans(algorithm=&#39;auto&#39;, copy_x=True, init=&#39;k-means++&#39;, max_iter=300,
-       n_clusters=23, n_init=10, n_jobs=None, precompute_distances=&#39;auto&#39;,
-       random_state=None, tol=0.0001, verbose=0)
+KMeans(n_clusters=23)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#we havent told my_KMeans_tool about our data yet, so we expect this to fail</span>
+<span></span><span class="c1">#we havent told my_KMeans_tool about our data yet, so **we expect this to fail**</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_KMeans_tool</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2721,7 +1897,7 @@ KMeans(algorithm=&#39;auto&#39;, copy_x=True, init=&#39;k-means++&#39;, max_iter
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-14-9d53e9cea4d7&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">&lt;ipython-input-13-9d53e9cea4d7&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg">#we havent told my_KMeans_tool about our data yet, so we expect this to fail</span>
 <span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>my_KMeans_tool<span class="ansi-blue-fg">.</span>labels_<span class="ansi-blue-fg">)</span>
 
@@ -2733,7 +1909,7 @@ KMeans(algorithm=&#39;auto&#39;, copy_x=True, init=&#39;k-means++&#39;, max_iter
 <h3>Black Box Operation<a class="headerlink" href="#Black-Box-Operation" title="Permalink to this headline"></a></h3>
 <p>sklearn (often) relies on the function “fit_transform” to connect the data with the algorithm</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2745,27 +1921,28 @@ KMeans(algorithm=&#39;auto&#39;, copy_x=True, init=&#39;k-means++&#39;, max_iter
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([[4.10284454, 5.13160144, 4.39696865, ..., 4.61880215, 3.07188996,
-        3.35410197],
-       [3.71931893, 4.96655481, 5.03322296, ..., 5.03322296, 3.6264023 ,
-        2.06155281],
-       [3.76386326, 5.13160144, 5.09901951, ..., 5.09901951, 3.72358421,
-        2.06155281],
+array([[4.09511905, 5.03322296, 4.08758282, ..., 4.72581563, 3.8580585 ,
+        5.03322296],
+       [3.71976702, 4.86483984, 4.71257184, ..., 4.45346307, 3.62151689,
+        4.86483984],
+       [3.91620565, 5.13160144, 4.78278162, ..., 4.37797518, 3.50274618,
+        5.13160144],
        ...,
-       [5.11533642, 5.13160144, 5.06622805, ..., 5.35412613, 4.44097086,
-        4.5       ],
-       [4.56435465, 4.61880215, 2.44948974, ..., 2.82842712, 3.97112594,
-        4.76969601],
-       [5.18009009, 5.32290647, 5.06622805, ..., 5.35412613, 4.35980923,
-        4.44409721]])
+       [4.56106713, 5.22812905, 4.95395465, ..., 1.77951304, 4.57837727,
+        5.22812905],
+       [4.60108683, 4.72581563, 2.09165007, ..., 5.03322296, 4.56996886,
+        4.72581563],
+       [4.39355589, 5.22812905, 4.95395465, ..., 1.77951304, 4.65336933,
+        5.22812905]])
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2780,7 +1957,7 @@ array([[4.10284454, 5.13160144, 4.39696865, ..., 4.61880215, 3.07188996,
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[12 22 22 ... 10  8 10]
+[14  9  9 ... 20  2 20]
 8124
 </pre></div></div>
 </div>
@@ -2819,29 +1996,8 @@ array([[4.10284454, 5.13160144, 4.39696865, ..., 4.61880215, 3.07188996,
 </section>
 <section id="id2">
 <h3>Code<a class="headerlink" href="#id2" title="Permalink to this headline"></a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">umap</span><span class="o">-</span><span class="n">learn</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-24-120ca35d6a11&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
-<span class="ansi-red-fg">    import umap-learn</span>
-               ^
-<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
-
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2861,123 +2017,8 @@ array([[4.10284454, 5.13160144, 4.39696865, ..., 4.61880215, 3.07188996,
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">SymbolAlreadyExposedError</span>                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-20-1c6bf3272ec7&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># create our black box</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-red-fg">## import our library</span>
-<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">import</span> umap
-<span class="ansi-green-intense-fg ansi-bold">      4</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> <span class="ansi-red-fg">## declare a couple of parameters that we wont get into</span>
-
-<span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/umap/__init__.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span>     <span class="ansi-green-fg">with</span> catch_warnings<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">      6</span>         simplefilter<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;ignore&#34;</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">from</span> <span class="ansi-blue-fg">.</span>parametric_umap <span class="ansi-green-fg">import</span> ParametricUMAP
-<span class="ansi-green-intense-fg ansi-bold">      8</span> <span class="ansi-green-fg">except</span> ImportError<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">      9</span>     warn(
-
-<span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/umap/parametric_umap.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">     11</span>
-<span class="ansi-green-intense-fg ansi-bold">     12</span> <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">---&gt; 13</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">import</span> tensorflow <span class="ansi-green-fg">as</span> tf
-<span class="ansi-green-intense-fg ansi-bold">     14</span> <span class="ansi-green-fg">except</span> ImportError<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">     15</span>     warn(
-
-<span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/tensorflow/__init__.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">     39</span> <span class="ansi-green-fg">import</span> sys <span class="ansi-green-fg">as</span> _sys
-<span class="ansi-green-intense-fg ansi-bold">     40</span>
-<span class="ansi-green-fg">---&gt; 41</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>tools <span class="ansi-green-fg">import</span> module_util <span class="ansi-green-fg">as</span> _module_util
-<span class="ansi-green-intense-fg ansi-bold">     42</span> <span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>util<span class="ansi-blue-fg">.</span>lazy_loader <span class="ansi-green-fg">import</span> LazyLoader <span class="ansi-green-fg">as</span> _LazyLoader
-<span class="ansi-green-intense-fg ansi-bold">     43</span>
-
-<span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/tensorflow/python/__init__.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">     44</span>
-<span class="ansi-green-intense-fg ansi-bold">     45</span> <span class="ansi-red-fg"># Bring in subpackages.</span>
-<span class="ansi-green-fg">---&gt; 46</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python <span class="ansi-green-fg">import</span> data
-<span class="ansi-green-intense-fg ansi-bold">     47</span> <span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python <span class="ansi-green-fg">import</span> distribute
-<span class="ansi-green-intense-fg ansi-bold">     48</span> <span class="ansi-red-fg"># from tensorflow.python import keras</span>
-
-<span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/tensorflow/python/data/__init__.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">     23</span>
-<span class="ansi-green-intense-fg ansi-bold">     24</span> <span class="ansi-red-fg"># pylint: disable=unused-import</span>
-<span class="ansi-green-fg">---&gt; 25</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>data <span class="ansi-green-fg">import</span> experimental
-<span class="ansi-green-intense-fg ansi-bold">     26</span> <span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>data<span class="ansi-blue-fg">.</span>ops<span class="ansi-blue-fg">.</span>dataset_ops <span class="ansi-green-fg">import</span> AUTOTUNE
-<span class="ansi-green-intense-fg ansi-bold">     27</span> <span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>data<span class="ansi-blue-fg">.</span>ops<span class="ansi-blue-fg">.</span>dataset_ops <span class="ansi-green-fg">import</span> Dataset
-
-<span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/tensorflow/python/data/experimental/__init__.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">     95</span>
-<span class="ansi-green-intense-fg ansi-bold">     96</span> <span class="ansi-red-fg"># pylint: disable=unused-import</span>
-<span class="ansi-green-fg">---&gt; 97</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>data<span class="ansi-blue-fg">.</span>experimental <span class="ansi-green-fg">import</span> service
-<span class="ansi-green-intense-fg ansi-bold">     98</span> <span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>data<span class="ansi-blue-fg">.</span>experimental<span class="ansi-blue-fg">.</span>ops<span class="ansi-blue-fg">.</span>batching <span class="ansi-green-fg">import</span> dense_to_ragged_batch
-<span class="ansi-green-intense-fg ansi-bold">     99</span> <span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>data<span class="ansi-blue-fg">.</span>experimental<span class="ansi-blue-fg">.</span>ops<span class="ansi-blue-fg">.</span>batching <span class="ansi-green-fg">import</span> dense_to_sparse_batch
-
-<span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/tensorflow/python/data/experimental/service/__init__.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">    351</span> <span class="ansi-green-fg">from</span> __future__ <span class="ansi-green-fg">import</span> print_function
-<span class="ansi-green-intense-fg ansi-bold">    352</span>
-<span class="ansi-green-fg">--&gt; 353</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>data<span class="ansi-blue-fg">.</span>experimental<span class="ansi-blue-fg">.</span>ops<span class="ansi-blue-fg">.</span>data_service_ops <span class="ansi-green-fg">import</span> distribute
-<span class="ansi-green-intense-fg ansi-bold">    354</span> <span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>data<span class="ansi-blue-fg">.</span>experimental<span class="ansi-blue-fg">.</span>ops<span class="ansi-blue-fg">.</span>data_service_ops <span class="ansi-green-fg">import</span> from_dataset_id
-<span class="ansi-green-intense-fg ansi-bold">    355</span> <span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>data<span class="ansi-blue-fg">.</span>experimental<span class="ansi-blue-fg">.</span>ops<span class="ansi-blue-fg">.</span>data_service_ops <span class="ansi-green-fg">import</span> register_dataset
-
-<span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/tensorflow/python/data/experimental/ops/data_service_ops.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">     24</span> <span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python <span class="ansi-green-fg">import</span> tf2
-<span class="ansi-green-intense-fg ansi-bold">     25</span> <span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>compat <span class="ansi-green-fg">import</span> compat
-<span class="ansi-green-fg">---&gt; 26</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>data<span class="ansi-blue-fg">.</span>experimental<span class="ansi-blue-fg">.</span>ops <span class="ansi-green-fg">import</span> compression_ops
-<span class="ansi-green-intense-fg ansi-bold">     27</span> <span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>data<span class="ansi-blue-fg">.</span>experimental<span class="ansi-blue-fg">.</span>ops<span class="ansi-blue-fg">.</span>distribute_options <span class="ansi-green-fg">import</span> AutoShardPolicy
-<span class="ansi-green-intense-fg ansi-bold">     28</span> <span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>data<span class="ansi-blue-fg">.</span>experimental<span class="ansi-blue-fg">.</span>ops<span class="ansi-blue-fg">.</span>distribute_options <span class="ansi-green-fg">import</span> ExternalStatePolicy
-
-<span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/tensorflow/python/data/experimental/ops/compression_ops.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">     18</span> <span class="ansi-green-fg">from</span> __future__ <span class="ansi-green-fg">import</span> print_function
-<span class="ansi-green-intense-fg ansi-bold">     19</span>
-<span class="ansi-green-fg">---&gt; 20</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>data<span class="ansi-blue-fg">.</span>util <span class="ansi-green-fg">import</span> structure
-<span class="ansi-green-intense-fg ansi-bold">     21</span> <span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>ops <span class="ansi-green-fg">import</span> gen_experimental_dataset_ops <span class="ansi-green-fg">as</span> ged_ops
-<span class="ansi-green-intense-fg ansi-bold">     22</span>
-
-<span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/tensorflow/python/data/util/structure.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">     31</span> <span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>framework <span class="ansi-green-fg">import</span> tensor_spec
-<span class="ansi-green-intense-fg ansi-bold">     32</span> <span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>framework <span class="ansi-green-fg">import</span> type_spec
-<span class="ansi-green-fg">---&gt; 33</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>ops <span class="ansi-green-fg">import</span> tensor_array_ops
-<span class="ansi-green-intense-fg ansi-bold">     34</span> <span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>ops<span class="ansi-blue-fg">.</span>ragged <span class="ansi-green-fg">import</span> ragged_tensor
-<span class="ansi-green-intense-fg ansi-bold">     35</span> <span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>platform <span class="ansi-green-fg">import</span> tf_logging <span class="ansi-green-fg">as</span> logging
-
-<span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/tensorflow/python/ops/tensor_array_ops.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">     41</span> <span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>ops <span class="ansi-green-fg">import</span> gen_data_flow_ops
-<span class="ansi-green-intense-fg ansi-bold">     42</span> <span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>ops <span class="ansi-green-fg">import</span> list_ops
-<span class="ansi-green-fg">---&gt; 43</span><span class="ansi-red-fg"> </span><span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>ops <span class="ansi-green-fg">import</span> math_ops
-<span class="ansi-green-intense-fg ansi-bold">     44</span> <span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>platform <span class="ansi-green-fg">import</span> tf_logging <span class="ansi-green-fg">as</span> logging
-<span class="ansi-green-intense-fg ansi-bold">     45</span> <span class="ansi-green-fg">from</span> tensorflow<span class="ansi-blue-fg">.</span>python<span class="ansi-blue-fg">.</span>util <span class="ansi-green-fg">import</span> tf_should_use
-
-<span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/tensorflow/python/ops/math_ops.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">    233</span> arg_max <span class="ansi-blue-fg">=</span> deprecation<span class="ansi-blue-fg">.</span>deprecated<span class="ansi-blue-fg">(</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;Use `tf.math.argmax` instead&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">(</span>arg_max<span class="ansi-blue-fg">)</span>  <span class="ansi-red-fg"># pylint: disable=used-before-assignment</span>
-<span class="ansi-green-intense-fg ansi-bold">    234</span> arg_min <span class="ansi-blue-fg">=</span> deprecation<span class="ansi-blue-fg">.</span>deprecated<span class="ansi-blue-fg">(</span><span class="ansi-green-fg">None</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;Use `tf.math.argmin` instead&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">(</span>arg_min<span class="ansi-blue-fg">)</span>  <span class="ansi-red-fg"># pylint: disable=used-before-assignment</span>
-<span class="ansi-green-fg">--&gt; 235</span><span class="ansi-red-fg"> </span>tf_export<span class="ansi-blue-fg">(</span>v1<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;arg_max&#34;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">(</span>dispatch<span class="ansi-blue-fg">.</span>add_dispatch_support<span class="ansi-blue-fg">(</span>arg_max<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    236</span> tf_export<span class="ansi-blue-fg">(</span>v1<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;arg_min&#34;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">(</span>dispatch<span class="ansi-blue-fg">.</span>add_dispatch_support<span class="ansi-blue-fg">(</span>arg_min<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    237</span>
-
-<span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/tensorflow/python/util/tf_export.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, func)</span>
-<span class="ansi-green-intense-fg ansi-bold">    338</span>
-<span class="ansi-green-intense-fg ansi-bold">    339</span>     _<span class="ansi-blue-fg">,</span> undecorated_func <span class="ansi-blue-fg">=</span> tf_decorator<span class="ansi-blue-fg">.</span>unwrap<span class="ansi-blue-fg">(</span>func<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">--&gt; 340</span><span class="ansi-red-fg">     </span>self<span class="ansi-blue-fg">.</span>set_attr<span class="ansi-blue-fg">(</span>undecorated_func<span class="ansi-blue-fg">,</span> api_names_attr<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>_names<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    341</span>     self<span class="ansi-blue-fg">.</span>set_attr<span class="ansi-blue-fg">(</span>undecorated_func<span class="ansi-blue-fg">,</span> api_names_attr_v1<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">.</span>_names_v1<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    342</span>
-
-<span class="ansi-green-fg">/usr/local/lib/python3.7/dist-packages/tensorflow/python/util/tf_export.py</span> in <span class="ansi-cyan-fg">set_attr</span><span class="ansi-blue-fg">(self, func, api_names_attr, names)</span>
-<span class="ansi-green-intense-fg ansi-bold">    355</span>         raise SymbolAlreadyExposedError(
-<span class="ansi-green-intense-fg ansi-bold">    356</span>             <span class="ansi-blue-fg">&#39;Symbol %s is already exposed as %s.&#39;</span> <span class="ansi-blue-fg">%</span>
-<span class="ansi-green-fg">--&gt; 357</span><span class="ansi-red-fg">             (func.__name__, getattr(func, api_names_attr)))  # pylint: disable=protected-access
-</span><span class="ansi-green-intense-fg ansi-bold">    358</span>     setattr<span class="ansi-blue-fg">(</span>func<span class="ansi-blue-fg">,</span> api_names_attr<span class="ansi-blue-fg">,</span> names<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    359</span>
-
-<span class="ansi-red-fg">SymbolAlreadyExposedError</span>: Symbol arg_max is already exposed as ().
-</pre></div></div>
-</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2990,19 +2031,11 @@ array([[4.10284454, 5.13160144, 4.39696865, ..., 4.61880215, 3.07188996,
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-UMAP(a=None, angular_rp_forest=False, b=None, dens_frac=0.0, dens_lambda=0.0,
-     dens_var_shift=0.1, densmap=False, disconnection_distance=None,
-     force_approximation_algorithm=False, init=&#39;spectral&#39;, learning_rate=1.0,
-     local_connectivity=1.0, low_memory=True, metric=&#39;euclidean&#39;,
-     metric_kwds=None, min_dist=0.1, n_components=2, n_epochs=None, n_jobs=-1,
-     n_neighbors=10, negative_sample_rate=5, output_dens=False,
-     output_metric=&#39;euclidean&#39;, output_metric_kwds=None, random_state=None,
-     repulsion_strength=1.0, set_op_mix_ratio=1.0, spread=1.0,
-     target_metric=&#39;categorical&#39;, target_metric_kwds=None, ...)
+UMAP(dens_frac=0.0, dens_lambda=0.0, n_neighbors=10)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3013,32 +2046,24 @@ UMAP(a=None, angular_rp_forest=False, b=None, dens_frac=0.0, dens_lambda=0.0,
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/usr/local/lib/python3.7/dist-packages/numba/np/ufunc/parallel.py:363: NumbaWarning: The TBB threading layer requires TBB version 2019.5 or later i.e., TBB_INTERFACE_VERSION &gt;= 11005. Found TBB_INTERFACE_VERSION = 9107. The TBB threading layer is disabled.
-  warnings.warn(problem)
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-array([[  0.8555444,  -9.621902 ],
-       [-14.365106 ,   6.823949 ],
-       [-14.201678 ,   6.731205 ],
+array([[-12.606995, -10.209141],
+       [ -6.51859 ,  11.120762],
+       [ -7.051779,  11.632253],
        ...,
-       [  7.5180655, -10.834193 ],
-       [ 20.17001  ,  10.188079 ],
-       [  7.53735  , -10.89849  ]], dtype=float32)
+       [  8.2905  , -12.863276],
+       [ 20.515024,   7.737422],
+       [  8.264026, -12.831777]], dtype=float32)
 </pre></div></div>
 </div>
 <p>We redo to capture the 2D coordinate list</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3057,7 +2082,7 @@ array([[  0.8555444,  -9.621902 ],
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3066,7 +2091,7 @@ array([[  0.8555444,  -9.621902 ],
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3086,11 +2111,11 @@ array([[  0.8555444,  -9.621902 ],
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/mushroom_v2_72_0.png" src="_images/mushroom_v2_72_0.png" />
+<img alt="_images/mushroom_v2_68_0.png" src="_images/mushroom_v2_68_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3117,7 +2142,7 @@ array([[  0.8555444,  -9.621902 ],
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/mushroom_v2_73_0.png" src="_images/mushroom_v2_73_0.png" />
+<img alt="_images/mushroom_v2_69_0.png" src="_images/mushroom_v2_69_0.png" />
 </div>
 </div>
 </section>
@@ -3128,7 +2153,7 @@ array([[  0.8555444,  -9.621902 ],
 <section id="Bonus:-Dim-Reduction-with-PCA">
 <h3>Bonus: Dim Reduction with PCA<a class="headerlink" href="#Bonus:-Dim-Reduction-with-PCA" title="Permalink to this headline"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -3149,7 +2174,7 @@ array([[  0.8555444,  -9.621902 ],
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/mushroom_v2_76_0.png" src="_images/mushroom_v2_76_0.png" />
+<img alt="_images/mushroom_v2_72_0.png" src="_images/mushroom_v2_72_0.png" />
 </div>
 </div>
 <div class="nboutput docutils container">
@@ -3157,7 +2182,7 @@ array([[  0.8555444,  -9.621902 ],
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-(8124, 117)
+(8124, 114)
 (8124,)
 </pre></div></div>
 </div>
@@ -3165,7 +2190,7 @@ array([[  0.8555444,  -9.621902 ],
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/mushroom_v2_76_2.png" src="_images/mushroom_v2_76_2.png" />
+<img alt="_images/mushroom_v2_72_2.png" src="_images/mushroom_v2_72_2.png" />
 </div>
 </div>
 </section>

@@ -23,8 +23,8 @@
    "source": [
     "Chemical identification in metabolomics analysis often relies, in part, on signals (spectra) from a [mass spectrometer](https://www.youtube.com/watch?v=myolF-h1kKI). Classically, compounds are identified by comparing the spectra of unknowns to a library of spectra measured from known reference standards. However, only a small fraction of compounds have reference spectra. Therefore, spectra-prediction tools, such as the machine-learning tool [CFM-ID](https://pubs.acs.org/doi/full/10.1021/acs.analchem.1c01465?ref=recommended&), have been created to provide predicted, surrogate spectra when experimental spectra are not available.\n",
     "\n",
-    "This work benchmarks the latest CFM-ID release by: \n",
-    "1) looking at overall prediction performance as a function of [mass analyzer](https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Supplemental_Modules_(Analytical_Chemistry)/Instrumental_Analysis/Mass_Spectrometry/Mass_Spectrometers_(Instrumentation)/Mass_Analyzers_(Mass_Spectrometry)) and [adduct](https://chem.libretexts.org/Ancillary_Materials/Reference/Organic_Chemistry_Glossary/Adduct) \n",
+    "This work benchmarks the latest CFM-ID release by:  \n",
+    "1) looking at overall prediction performance as a function of [mass analyzer](https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Supplemental_Modules_(Analytical_Chemistry)/Instrumental_Analysis/Mass_Spectrometry/Mass_Spectrometers_(Instrumentation)/Mass_Analyzers_(Mass_Spectrometry)) and [adduct](https://chem.libretexts.org/Ancillary_Materials/Reference/Organic_Chemistry_Glossary/Adduct)  \n",
     "2) exploring performance as a function of chemical identity  \n",
     "3) exploring performance as a function of instrument power settings"
    ]
@@ -42,13 +42,13 @@
    "id": "61893b1f",
    "metadata": {},
    "source": [
-    "This project made extensive use of the Python3 libraries:\n",
-    "* pandas\n",
-    "* sklearn\n",
-    "* umap\n",
-    "* matplotlib\n",
-    "* numpy\n",
-    "* snakemake"
+    "This project made extensive use of the Python3 libraries:  \n",
+    "* pandas  \n",
+    "* sklearn  \n",
+    "* umap  \n",
+    "* matplotlib  \n",
+    "* numpy  \n",
+    "* snakemake  "
    ]
   },
   {
@@ -68,7 +68,6 @@
    ]
   },
   {
-   "attachments": {},
    "cell_type": "markdown",
    "id": "1f3c7d09",
    "metadata": {},
@@ -119,12 +118,17 @@
    ]
   },
   {
-   "attachments": {},
    "cell_type": "markdown",
    "id": "c31540a8",
    "metadata": {},
    "source": [
-    "Briefly, we started by selecting the best and worst performing compound from the overall analysis (1). We then created a descriptor vector (called a fingerprint in many chemical contexts) for each compound using the [CACTVS/Pubchem fingerprints](https://web.cse.ohio-state.edu/~zhang.10631/bak/drugreposition/list_fingerprints.pdf) and reduced the dimensionality with PCA (2). Unsatisfied with the differentiation, we further reduced the dimensionality with [UMAP](https://umap-learn.readthedocs.io/en/latest/) and created a 2-dimensional embedding from the 800-dimensional fingerprints (3). To reiterate, the location in this space are 2-dimensional representations of the fingperints and each point represents a compound - color coded by best or worst prediction. We then performed two 2-dimensional histogrammings on the embedded space, one for best-predicted and one for worst predicted (4). We then subtracted these histograms and blurred the difference (5). This created locations in the embedded space where CFM-ID predicted comparatively well or comparatively poorly. We could analyze the compounds found in this space to create communicable, interpretable descriptions of when CFM-ID performs well."
+    "Briefly, we started by  \n",
+    "1. Selecting the best and worst performing compound from the overall analysis\n",
+    "2. We then created a descriptor vector (called a fingerprint in many chemical contexts) for each compound using the [CACTVS/Pubchem fingerprints](https://web.cse.ohio-state.edu/~zhang.10631/bak/drugreposition/list_fingerprints.pdf) and reduced the dimensionality with PCA.  \n",
+    "3. Unsatisfied with the differentiation, we further reduced the dimensionality with [UMAP](https://umap-learn.readthedocs.io/en/latest/) and created a 2-dimensional embedding from the 800-dimensional fingerprints.  \n",
+    "4. To reiterate, the location in this space are 2-dimensional representations of the fingperints and each point represents a compound - color coded by best or worst prediction. We then performed two 2-dimensional histogrammings on the embedded space, one for best-predicted and one for worst predicted.  \n",
+    "5. We then subtracted these histograms and blurred the difference.  \n",
+    "6. We used a heigh/depth cutoff. This created locations in the embedded space where CFM-ID predicted comparatively well or comparatively poorly. We could analyze the compounds found in this space to create communicable, interpretable descriptions of when CFM-ID performs well."
    ]
   },
   {
@@ -161,7 +165,7 @@
    "id": "993bc1e7",
    "metadata": {},
    "source": [
-    "Clearly, there are levels of complexity and classes of compounds for which CFM-ID performs better."
+    "Therefore, there are levels of complexity and classes of compounds for which CFM-ID performs better."
    ]
   },
   {

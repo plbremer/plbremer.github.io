@@ -51,7 +51,7 @@
     "\n",
     "![Picture5.PNG](attachment:Picture5.PNG)\n",
     "\n",
-    "Therefore, the method can be outlined as: \n",
+    "Therefore, the method can be outlined as:  \n",
     "1) performing simulations  \n",
     "2) partitioning simulation snapshots into binding modes  \n",
     "3) reporting binding modes"
@@ -151,7 +151,6 @@
    ]
   },
   {
-   "attachments": {},
    "cell_type": "markdown",
    "id": "92509a3c",
    "metadata": {},
