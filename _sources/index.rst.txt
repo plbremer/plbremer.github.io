@@ -8,12 +8,6 @@ Feel free to email (parkerbremer at gmail dot com).
 
 .. toctree::
    :maxdepth: 1
-   :caption: Résumé
-
-   resume_pdf
-
-.. toctree::
-   :maxdepth: 1
    :caption: Academic Works
 
    binvestigate_paper
