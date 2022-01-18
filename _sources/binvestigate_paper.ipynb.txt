@@ -58,7 +58,7 @@
    "id": "c0eb43d3",
    "metadata": {},
    "source": [
-    "The [West Coast Metabolomics Center](https://metabolomics.ucdavis.edu/core-services) has collected over 64 million compound intensity measurements from over 200 thousand samples from 3 thousand studies. These stuides cover a very broad space of species, organs, and diseases. This work is a meta-analysis that:  \n",
+    "The [West Coast Metabolomics Center](https://metabolomics.ucdavis.edu/core-services) has collected over 64 million compound intensity measurements from over 200 thousand samples from 3 thousand studies. These studies cover a very broad space of species, organs, and diseases. This work is a meta-analysis that:  \n",
     "\n",
     "1) Answers broad questions like \"In general, how are humans without cancer different than those with cancer?\"  \n",
     "2) Provides easy access to results for researchers so they can explore the compounds/metadata that interest them"
