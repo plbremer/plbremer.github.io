@@ -8,16 +8,28 @@ Feel free to email (parkerbremer at gmail dot com).
 
 .. toctree::
    :maxdepth: 1
+   :caption: About Me
+
+   about_me
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Professional Works
+
+.. toctree::
+   :maxdepth: 1
    :caption: Academic Works
 
    binvestigate_paper
    cfmid_paper
    bche_paper
+   clusterbase
 
 .. toctree::
    :maxdepth: 1
    :caption: Teaching
-
+   
+   introduction_to_pandas
    mushroom_v2
 
 
