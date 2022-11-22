@@ -7,7 +7,7 @@
     "id": "q3LkhJPJXf_I"
    },
    "source": [
-    "# **Day 3**"
+    "# Introduction to Datascience"
    ]
   },
   {
