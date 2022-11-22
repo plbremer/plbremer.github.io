@@ -21,14 +21,15 @@ Feel free to email (parkerbremer at gmail dot com).
    :caption: Academic Works
 
    binvestigate_paper
+   clusterbase
    cfmid_paper
    bche_paper
-   clusterbase
 
 .. toctree::
    :maxdepth: 1
    :caption: Teaching
    
+   about_teaching
    introduction_to_pandas
    mushroom_v2
 
