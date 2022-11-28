@@ -37,7 +37,7 @@
    "id": "226893df",
    "metadata": {},
    "source": [
-    "http://binvestigate8-env.eba-fydtk3ky.us-west-2.elasticbeanstalk.com"
+    "http://binvestigate11-env.eba-wp9znd2q.us-west-2.elasticbeanstalk.com/"
    ]
   },
   {
