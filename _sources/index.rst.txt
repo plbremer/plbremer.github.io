@@ -27,6 +27,13 @@ Feel free to email (parkerbremer at gmail dot com).
 
 .. toctree::
    :maxdepth: 1
+   :caption: Personal Projects and  Curiousities
+
+   DL_intensity_prediction
+   gcms_manifold_widget
+
+.. toctree::
+   :maxdepth: 1
    :caption: Teaching
    
    about_teaching

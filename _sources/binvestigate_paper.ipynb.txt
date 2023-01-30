@@ -5,7 +5,7 @@
    "id": "c2ef4a60",
    "metadata": {},
    "source": [
-    "# BinVestigate"
+    "# BinDiscover"
    ]
   },
   {
@@ -138,9 +138,9 @@
    "metadata": {},
    "source": [
     "\n",
-    "a) BinBase records observations from 156,174 metabolomic samples run on a GC-TOF mass spectrometer from 2005-2021. Corresponding biological metadata were curated and the resulting annotation table formed the basis of the exploratory webtool BinVestigate. \n",
+    "a) BinBase records observations from 156,174 metabolomic samples run on a GC-TOF mass spectrometer from 2005-2021. Corresponding biological metadata were curated and the resulting annotation table formed the basis of the exploratory webtool BinDiscover. \n",
     "\n",
-    "b) BinVestigate associates metabolite intensities across species, organs, and diseases. Established ontologies are used to order biological metadata for queries. For metabolites, we used the ClassyFire ontology to enable compound class-level queries. \n",
+    "b) BinDiscover associates metabolite intensities across species, organs, and diseases. Established ontologies are used to order biological metadata for queries. For metabolites, we used the ClassyFire ontology to enable compound class-level queries. \n",
     "\n",
     "c) Biological metadata are associated with all samples and are represented and can be queried via different ontology levels, such as “digestive system” or “bacteria”. Species, organ and disease ontologies are highlighted by colors. We call this Ontologically Grouped Differential Analysis (OGDA)."
    ]
@@ -177,7 +177,7 @@
     "\n",
     "b) Comparing (Apple, Fruit, No Disease) vs. (All Species, Fruit, No Disease) with Ontologically Grouped Differential Analysis. Based on the complexity of the first results, apples are compared to all fruit. Here, only a small handful of compounds are observed as being unique to the apple’s metabolome. An example compound, tagatose, is labeled.\n",
     "\n",
-    "c) Tagatose intensity across all metadata combinations. Further investigation of tagatose with a sunburst diagram reveals that it has the greatest observed intensity in apples among of any type of sample in Binvestigate. \n",
+    "c) Tagatose intensity across all metadata combinations. Further investigation of tagatose with a sunburst diagram reveals that it has the greatest observed intensity in apples among of any type of sample in BinDiscover. \n",
     "\n",
     "d) Tagatose compound information."
    ]
@@ -218,7 +218,7 @@
    "source": [
     "a) We perform two OGDA - first, between (Human, Digestive System, Cancer) vs (Human, Blood, No disease) then between (Human, Digestive System, No Disease) vs (Human, Blood, No disease). Combining data across experiments and organs is challenging, and the OGDA extracts robust candidates by filtering out inconsistent metabolites. Two lists of conservatively estimated fold-change and significance values are produced for each compound. Those compounds with both positive and negative fold-changes in the pairwise comparison are assigned a fold change value of zero.\n",
     "\n",
-    "b) Our approach has successfully produced a tractable list of candidates to explore. By including multiple group"
+    "b) Our approach has successfully produced a tractable list of candidates to explore. By including multiple combinations in our groups, we reduce the list of results to include only high-confidence compounds."
    ]
   }
  ],
