@@ -14,10 +14,6 @@ Feel free to email (parkerbremer at gmail dot com).
 
 .. toctree::
    :maxdepth: 1
-   :caption: Professional Works
-
-.. toctree::
-   :maxdepth: 1
    :caption: Academic Works
 
    binvestigate_paper

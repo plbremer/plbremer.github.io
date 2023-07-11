@@ -21,7 +21,7 @@
    "id": "ef9760cc",
    "metadata": {},
    "source": [
-    "To be submitted to [Bioinformatics](https://academic.oup.com/bioinformatics)."
+    "Accepted at the [Journal of Cheminformatics](https://jcheminf.biomedcentral.com/)."
    ]
   },
   {
@@ -37,7 +37,7 @@
    "id": "226893df",
    "metadata": {},
    "source": [
-    "http://binvestigate14.us-west-2.elasticbeanstalk.com"
+    "http://bindiscover.metabolomics.us/"
    ]
   },
   {
@@ -53,7 +53,7 @@
    "id": "e27744e8",
    "metadata": {},
    "source": [
-    "DB-Pipeline-DB and DB-API-Frontend architechture"
+    "DB->Pipeline->DB<-API->Frontend"
    ]
   },
   {
@@ -108,7 +108,7 @@
    "id": "ace635fb",
    "metadata": {},
    "source": [
-    "The main result is the [production website](http://binvestigate8.us-west-2.elasticbeanstalk.com/)"
+    "The main result is the [production website](https://bindiscover.metbaolomics.us)"
    ]
   },
   {

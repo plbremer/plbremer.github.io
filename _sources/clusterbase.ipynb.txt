@@ -10,22 +10,6 @@
   },
   {
    "cell_type": "markdown",
-   "id": "2c2377bd",
-   "metadata": {},
-   "source": [
-    "## Project Status"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "39476468",
-   "metadata": {},
-   "source": [
-    "This project is still in development, so explanations are short :)"
-   ]
-  },
-  {
-   "cell_type": "markdown",
    "id": "450d7863",
    "metadata": {},
    "source": [
