@@ -16,6 +16,7 @@ Feel free to email (parkerbremer at gmail dot com).
    :maxdepth: 1
    :caption: Academic Works
 
+   smetas
    binvestigate_paper
    clusterbase
    cfmid_paper
