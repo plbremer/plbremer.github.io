@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Parker\'s Porject Blog'
+project = 'Parker\'s Project Blog'
 copyright = '2023, Parker Bremer'
 author = 'Parker Bremer'
 
