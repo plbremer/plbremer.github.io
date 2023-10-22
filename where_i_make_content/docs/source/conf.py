@@ -17,8 +17,8 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Parkers Datascience Blog'
-copyright = '2021, Parker Bremer'
+project = 'Parker\'s Porject Blog'
+copyright = '2023, Parker Bremer'
 author = 'Parker Bremer'
 
 # The full version, including alpha/beta/rc tags

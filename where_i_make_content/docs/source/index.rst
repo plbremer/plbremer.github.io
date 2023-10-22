@@ -1,10 +1,10 @@
 .. Parkers Blog
 
-A showcase of Parker's Projects in Datascience
-==============================================
+A showcase of Parker's Projects
+===============================
 
 A growing list of projects, teaching experiences, and more. 
-Feel free to email (parkerbremer at gmail dot com).
+Feel free to email (parker bremer at gmail dot com).
 
 .. toctree::
    :maxdepth: 1
@@ -14,8 +14,9 @@ Feel free to email (parkerbremer at gmail dot com).
 
 .. toctree::
    :maxdepth: 1
-   :caption: Academic Works
+   :caption: Professional Works
 
+   current_work
    smetas
    binvestigate_paper
    clusterbase
