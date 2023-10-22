@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction to Pandas &mdash; Parkers Datascience Blog 0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction to Datascience" href="mushroom_v2.html" />
+    <link rel="prev" title="About" href="about_teaching.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Parkers Datascience Blog
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">About Me</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="about_me.html">Parker</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Academic Works</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="smetas.html">SMetaS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binvestigate_paper.html">BinDiscover</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clusterbase.html">ClusterBase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cfmid_paper.html">CFM-ID Benchmarking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bche_paper.html">Butyrylcholinesterase Druggability</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Personal Projects and  Curiousities</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="DL_intensity_prediction.html">DeepLearning Spectrum Intensity Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gcms_manifold_widget.html">Visualizing 200k+ Spectra and Structures</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Teaching</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about_teaching.html">About</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction to Pandas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#What-is-a-pandas-DataFrame">What is a pandas DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Why-use-pandas-DataFrames">Why use pandas DataFrames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Clear-example-of-DataFrame">Clear example of DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#How-are-they-made?">How are they made?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Making-the-above-DataFrame">Making the above DataFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Accessing-Values-in-a-DataFrame">Accessing Values in a DataFrame</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Accesing-the-Indices-(indexes)">Accesing the Indices (indexes)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Accesing-cells-by-numeric-location">Accesing cells by numeric location</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Accessing-cells-by-index/column-names">Accessing cells by index/column-names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Accessing-cells-by-condition">Accessing cells by condition</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Operations-on-a-DF">Operations on a DF</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Simple-Operations">Simple Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#More-Complicated-Operations">More Complicated Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Synergies-with-other-libraries">Synergies with other libraries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Getting-a-larger-dataset">Getting a larger dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Basic-inspection---Some-handy-functions">Basic inspection - Some handy functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Visualizing-our-Dataset">Visualizing our Dataset</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mushroom_v2.html">Introduction to Datascience</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Parkers Datascience Blog</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Introduction to Pandas</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/introduction_to_pandas.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="Introduction-to-Pandas">
+<h1>Introduction to Pandas<a class="headerlink" href="#Introduction-to-Pandas" title="Permalink to this headline"></a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+</pre></div>
+</div>
+</div>
+<section id="What-is-a-pandas-DataFrame">
+<h2>What is a pandas DataFrame<a class="headerlink" href="#What-is-a-pandas-DataFrame" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Pandas is a library</p>
+<ul>
+<li><p>(import it, has a documentation website <a class="reference external" href="https://pandas.pydata.org/">https://pandas.pydata.org/</a>)</p></li>
+</ul>
+</li>
+<li><p>DataFrame is a datatype/datastructure/object</p>
+<ul>
+<li><p>the main offering of the pandas library</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="Why-use-pandas-DataFrames">
+<h2>Why use pandas DataFrames<a class="headerlink" href="#Why-use-pandas-DataFrames" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Pandas DataFrame Description/Motivation</p>
+<ul>
+<li><p>Robust tool for data wrangling and data analysis</p></li>
+<li><p>Exceptionally good documentation</p></li>
+<li><p>Synergizes with other libraries</p></li>
+<li><p>More powerful than excel</p></li>
+</ul>
+</li>
+<li><p>Use-case</p>
+<ul>
+<li><p>In-memory amount of data</p></li>
+<li><p>Millions of rows</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="Clear-example-of-DataFrame">
+<h2>Clear example of DataFrame<a class="headerlink" href="#Clear-example-of-DataFrame" title="Permalink to this headline"></a></h2>
+<img alt="day_3_lecture_1_image_1.png" src="data:image/png;base64,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" />
+<ul class="simple">
+<li><p>Attributes</p>
+<ul>
+<li><p>Column Indexes</p></li>
+<li><p>Row Indexes</p></li>
+<li><p>Multiple datatypes</p></li>
+<li><p>Datatypes function of column</p>
+<ul>
+<li><p>List of strings in the entry at [4,‘column_three’]</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="How-are-they-made?">
+<h2>How are they made?<a class="headerlink" href="#How-are-they-made?" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>They are declared</p></li>
+<li><p>The information comes from</p>
+<ul>
+<li><p>read in a .csv file</p></li>
+<li><p>from a python dictionary</p></li>
+<li><p>from a pickle (special binary file)</p></li>
+<li><p>from .json file</p></li>
+<li><p>and more</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="Making-the-above-DataFrame">
+<h2>Making the above DataFrame<a class="headerlink" href="#Making-the-above-DataFrame" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Strategy</p>
+<ul>
+<li><p>DataFrame from a python dictionary (less common, but helpful for now)</p></li>
+</ul>
+</li>
+<li><p>If we were unsure</p>
+<ul>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.from_dict.html">https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.from_dict.html</a></p></li>
+</ul>
+</li>
+<li><p>We make a dictionary where</p>
+<ul>
+<li><p>the keys are column names</p></li>
+<li><p>the values are lists of actual data</p></li>
+</ul>
+</li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#make the values</span>
+<span class="n">first_list</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">second_list</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">]</span>
+<span class="n">third_list</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;lets&#39;</span><span class="p">,</span><span class="s1">&#39;mix&#39;</span><span class="p">,</span><span class="s1">&#39;it&#39;</span><span class="p">,</span><span class="s1">&#39;up&#39;</span><span class="p">,[</span><span class="s1">&#39;ok&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#assign the values to keys in a dictionary</span>
+<span class="n">my_dict</span><span class="o">=</span><span class="p">{</span>
+    <span class="s1">&#39;column_one&#39;</span><span class="p">:</span><span class="n">first_list</span><span class="p">,</span>
+    <span class="s1">&#39;column_two&#39;</span><span class="p">:</span><span class="n">second_list</span><span class="p">,</span>
+    <span class="s1">&#39;column_three&#39;</span><span class="p">:</span><span class="n">third_list</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#print the whole dictionary to see what it looks like</span>
+<span class="c1">#note that the keys are ordered alphabetically when we use pprint (pretty print)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">my_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;column_one&#39;: [1, 2, 3, 4, 5],
+ &#39;column_three&#39;: [&#39;lets&#39;, &#39;mix&#39;, &#39;it&#39;, &#39;up&#39;, [&#39;ok&#39;]],
+ &#39;column_two&#39;: [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]}
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#declare our dataframe using the &quot;from dictionary approach&quot;</span>
+<span class="c1">#get our &quot;information&quot; from our dictionary</span>
+<span class="n">my_DataFrame</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">my_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#see our dataframe</span>
+<span class="n">my_DataFrame</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>column_one</th>
+      <th>column_two</th>
+      <th>column_three</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>a</td>
+      <td>lets</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>b</td>
+      <td>mix</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>c</td>
+      <td>it</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>d</td>
+      <td>up</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>e</td>
+      <td>[ok]</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="Accessing-Values-in-a-DataFrame">
+<h2>Accessing Values in a DataFrame<a class="headerlink" href="#Accessing-Values-in-a-DataFrame" title="Permalink to this headline"></a></h2>
+<section id="Accesing-the-Indices-(indexes)">
+<h3>Accesing the Indices (indexes)<a class="headerlink" href="#Accesing-the-Indices-(indexes)" title="Permalink to this headline"></a></h3>
+<p>The indices are accessible and mutable (changeable)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">my_DataFrame</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+RangeIndex(start=0, stop=5, step=1)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">my_DataFrame</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Index([&#39;column_one&#39;, &#39;column_two&#39;, &#39;column_three&#39;], dtype=&#39;object&#39;)
+</pre></div></div>
+</div>
+</section>
+<section id="Accesing-cells-by-numeric-location">
+<h3>Accesing cells by numeric location<a class="headerlink" href="#Accesing-cells-by-numeric-location" title="Permalink to this headline"></a></h3>
+<p>Values DataFrames can be accessed “like” traditional lists (according to numerical position).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">my_DataFrame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;c&#39;
+</pre></div></div>
+</div>
+<p>This can be a mildly dangerous approach if you are writing for long-term projects. But can be convenient for some quick-scripts.</p>
+</section>
+<section id="Accessing-cells-by-index/column-names">
+<h3>Accessing cells by index/column-names<a class="headerlink" href="#Accessing-cells-by-index/column-names" title="Permalink to this headline"></a></h3>
+<p>“at” is a good choice for single-value access</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">my_DataFrame</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;column_three&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;it&#39;
+</pre></div></div>
+</div>
+<p>“loc” is a good choice for “slicing” a dataframe (provide a list of row-indices and a list of column-indices)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">my_DataFrame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,[</span><span class="s1">&#39;column_two&#39;</span><span class="p">,</span><span class="s1">&#39;column_three&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>column_two</th>
+      <th>column_three</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>a</td>
+      <td>lets</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>b</td>
+      <td>mix</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>c</td>
+      <td>it</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="Accessing-cells-by-condition">
+<h3>Accessing cells by condition<a class="headerlink" href="#Accessing-cells-by-condition" title="Permalink to this headline"></a></h3>
+<p>We can write conditions “inside loc” in order to get slices where the condition is true (fyi: under the hood, python turns the condition into a list of True/False)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">my_DataFrame</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="n">my_DataFrame</span><span class="p">[</span><span class="s1">&#39;column_one&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>column_one</th>
+      <th>column_two</th>
+      <th>column_three</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>c</td>
+      <td>it</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>d</td>
+      <td>up</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>e</td>
+      <td>[ok]</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+</section>
+<section id="Operations-on-a-DF">
+<h2>Operations on a DF<a class="headerlink" href="#Operations-on-a-DF" title="Permalink to this headline"></a></h2>
+<p>We can loosely classify operations on a DF into “simple” and “complicated”. The general strategy for each type of operation is shown below.</p>
+<section id="Simple-Operations">
+<h3>Simple Operations<a class="headerlink" href="#Simple-Operations" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Rule of thumb definition</p>
+<ul>
+<li><p>If the operation feels “common”, then see (google) if there is a built-in function</p></li>
+</ul>
+</li>
+<li><p>Examples</p>
+<ul>
+<li><p>Taking the average of a column</p></li>
+<li><p>Adding a constant to a column</p></li>
+<li><p>Stripping the whitespace from the ends of strings in a column</p></li>
+</ul>
+</li>
+<li><p>Advice</p>
+<ul>
+<li><p>Use the built in function.</p>
+<ul>
+<li><p>Fast</p></li>
+<li><p>Error-free</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#taking the average value of a column</span>
+<span class="c1">#same thing as my_DataFrame[&#39;column_one&#39;].mean()</span>
+<span class="n">my_DataFrame</span><span class="o">.</span><span class="n">column_one</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+3.0
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#adding a constant value to a column</span>
+<span class="n">my_DataFrame</span><span class="o">.</span><span class="n">column_one</span><span class="o">+</span><span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0     6
+1     7
+2     8
+3     9
+4    10
+Name: column_one, dtype: int64
+</pre></div></div>
+</div>
+<p><em>A Caveat</em></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#notice in the above we did not assign the output of &quot;my_DataFrame.column_one+5&quot; to anything.</span>
+<span class="c1">#so the original dataframe remains unchanged</span>
+<span class="n">my_DataFrame</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>column_one</th>
+      <th>column_two</th>
+      <th>column_three</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>a</td>
+      <td>lets</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>b</td>
+      <td>mix</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>c</td>
+      <td>it</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>d</td>
+      <td>up</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>e</td>
+      <td>[ok]</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#removing the whitespace from a column</span>
+<span class="n">my_DataFrame</span><span class="o">.</span><span class="n">column_two</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0    a
+1    b
+2    c
+3    d
+4    e
+Name: column_two, dtype: object
+</pre></div></div>
+</div>
+<p>Notice that we needed to “access” the “string representation” of a column in order to “do an operation” that “acts on strings”. With a little practice you will get used to these things.</p>
+</section>
+<section id="More-Complicated-Operations">
+<h3>More Complicated Operations<a class="headerlink" href="#More-Complicated-Operations" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Rule of thumb definition</p>
+<ul>
+<li><p>As the “customness” of an operation increases, so do the chances that you will have to write the operation yourself.</p></li>
+</ul>
+</li>
+<li><p>Advice</p>
+<ul>
+<li><p>If the project does not call for it, do not break your back to force the use of fast functions.</p></li>
+<li><p>Instead, consider “operating” “element-wise” “in a for-loop”</p></li>
+</ul>
+</li>
+<li><p>Examples</p>
+<ul>
+<li><p>Each element in a column is searched against a database</p></li>
+<li><p>Each list in a column has some complicated math done on it</p></li>
+</ul>
+</li>
+</ul>
+<p>One approach is iterrows</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#iterrows gives us two things that we iterate over simultaneously, much like enumerate() on a</span>
+<span class="c1">#&quot;normal&quot; list</span>
+<span class="k">for</span> <span class="n">temporary_index</span><span class="p">,</span><span class="n">temporary_row</span> <span class="ow">in</span> <span class="n">my_DataFrame</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="c1">#COMPLICATED CODE HERE</span>
+    <span class="c1">#printing example:</span>
+    <span class="k">if</span> <span class="n">temporary_index</span><span class="o">==</span><span class="mi">2</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">temporary_index</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="o">*</span><span class="mi">30</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">temporary_row</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="o">*</span><span class="mi">30</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">temporary_row</span><span class="p">[</span><span class="s1">&#39;column_two&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2
+******************************
+column_one       3
+column_two       c
+column_three    it
+Name: 2, dtype: object
+******************************
+c
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="Synergies-with-other-libraries">
+<h2>Synergies with other libraries<a class="headerlink" href="#Synergies-with-other-libraries" title="Permalink to this headline"></a></h2>
+<section id="Getting-a-larger-dataset">
+<h3>Getting a larger dataset<a class="headerlink" href="#Getting-a-larger-dataset" title="Permalink to this headline"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#the penguins dataset is a &quot;classic&quot;</span>
+<span class="n">my_dataset</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;penguins&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">my_dataset</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.1</td>
+      <td>18.7</td>
+      <td>181.0</td>
+      <td>3750.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.5</td>
+      <td>17.4</td>
+      <td>186.0</td>
+      <td>3800.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>40.3</td>
+      <td>18.0</td>
+      <td>195.0</td>
+      <td>3250.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>36.7</td>
+      <td>19.3</td>
+      <td>193.0</td>
+      <td>3450.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>339</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>340</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>46.8</td>
+      <td>14.3</td>
+      <td>215.0</td>
+      <td>4850.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>341</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>50.4</td>
+      <td>15.7</td>
+      <td>222.0</td>
+      <td>5750.0</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>342</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>45.2</td>
+      <td>14.8</td>
+      <td>212.0</td>
+      <td>5200.0</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>343</th>
+      <td>Gentoo</td>
+      <td>Biscoe</td>
+      <td>49.9</td>
+      <td>16.1</td>
+      <td>213.0</td>
+      <td>5400.0</td>
+      <td>Male</td>
+    </tr>
+  </tbody>
+</table>
+<p>344 rows × 7 columns</p>
+</div></div>
+</div>
+<p>Note that we can no longer see every row and every column. This will be especially true in datasets with thousands (of thousands) of rows. We want to be able to interrogate the dataset as a whole.</p>
+</section>
+<section id="Basic-inspection---Some-handy-functions">
+<h3>Basic inspection - Some handy functions<a class="headerlink" href="#Basic-inspection---Some-handy-functions" title="Permalink to this headline"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">my_dataset</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 344 entries, 0 to 343
+Data columns (total 7 columns):
+ #   Column             Non-Null Count  Dtype
+---  ------             --------------  -----
+ 0   species            344 non-null    object
+ 1   island             344 non-null    object
+ 2   bill_length_mm     342 non-null    float64
+ 3   bill_depth_mm      342 non-null    float64
+ 4   flipper_length_mm  342 non-null    float64
+ 5   body_mass_g        342 non-null    float64
+ 6   sex                333 non-null    object
+dtypes: float64(4), object(3)
+memory usage: 18.9+ KB
+</pre></div></div>
+</div>
+<ul class="simple">
+<li><p>info() shows us</p>
+<ul>
+<li><p>column names</p></li>
+<li><p>non-null counts</p></li>
+<li><p>datatypes</p></li>
+<li><p>memory usage</p></li>
+</ul>
+</li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">my_dataset</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>342.000000</td>
+      <td>342.000000</td>
+      <td>342.000000</td>
+      <td>342.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>43.921930</td>
+      <td>17.151170</td>
+      <td>200.915205</td>
+      <td>4201.754386</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>5.459584</td>
+      <td>1.974793</td>
+      <td>14.061714</td>
+      <td>801.954536</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>32.100000</td>
+      <td>13.100000</td>
+      <td>172.000000</td>
+      <td>2700.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>39.225000</td>
+      <td>15.600000</td>
+      <td>190.000000</td>
+      <td>3550.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>44.450000</td>
+      <td>17.300000</td>
+      <td>197.000000</td>
+      <td>4050.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>48.500000</td>
+      <td>18.700000</td>
+      <td>213.000000</td>
+      <td>4750.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>59.600000</td>
+      <td>21.500000</td>
+      <td>231.000000</td>
+      <td>6300.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<ul class="simple">
+<li><p>describe() gives us some descriptive statistics of numeric columns</p>
+<ul>
+<li><p>look at these values together (dont assume normality, etc)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="Visualizing-our-Dataset">
+<h3>Visualizing our Dataset<a class="headerlink" href="#Visualizing-our-Dataset" title="Permalink to this headline"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#seaborn&#39;s pairplot very conveniently accepts a dataframe as input</span>
+<span class="c1">#and makes a scatter/histogram figure</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span>
+    <span class="n">my_dataset</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;seaborn.axisgrid.PairGrid at 0x7fdd79011f40&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/introduction_to_pandas_59_1.png" src="_images/introduction_to_pandas_59_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#we could send a smaller dataframe using a list of columns if we wanted</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span>
+    <span class="n">my_dataset</span><span class="p">[[</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">,</span><span class="s1">&#39;bill_depth_mm&#39;</span><span class="p">]]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;seaborn.axisgrid.PairGrid at 0x7fdd79121a00&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/introduction_to_pandas_60_1.png" src="_images/introduction_to_pandas_60_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span>
+    <span class="n">my_dataset</span><span class="p">,</span>
+    <span class="c1">#seaborn is built &quot;on top of matplotlib&quot;, which means that it does a lot of things</span>
+    <span class="c1">#more easily for you</span>
+    <span class="c1">#however, some of the stuff in matplotlib is still accessible if you can express</span>
+    <span class="c1">#what you want the same way.</span>
+    <span class="c1">#if we had millions of datapoints, we could visualize density by making the points</span>
+    <span class="c1">#somewhat transparent</span>
+    <span class="n">plot_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;seaborn.axisgrid.PairGrid at 0x7fdd7529e1f0&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/introduction_to_pandas_61_1.png" src="_images/introduction_to_pandas_61_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1">#coloring based on a categorical variable is very natural</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span>
+    <span class="n">my_dataset</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;species&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;seaborn.axisgrid.PairGrid at 0x7fdd6f1e9760&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/introduction_to_pandas_62_1.png" src="_images/introduction_to_pandas_62_1.png" />
+</div>
+</div>
+<p>Our histograms have been transformed into (normalized?) densities.</p>
+<p>There are way more types of plots where that came from</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">my_dataset</span><span class="o">.</span><span class="n">bill_depth_mm</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;AxesSubplot:xlabel=&#39;bill_depth_mm&#39;&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/introduction_to_pandas_65_1.png" src="_images/introduction_to_pandas_65_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">sns</span><span class="o">.</span><span class="n">stripplot</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;bill_depth_mm&#39;</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">my_dataset</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;AxesSubplot:xlabel=&#39;species&#39;, ylabel=&#39;bill_depth_mm&#39;&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/introduction_to_pandas_66_1.png" src="_images/introduction_to_pandas_66_1.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">day_1_file_parsed</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./Day1CountryInfo2018.txt&#39;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="about_teaching.html" class="btn btn-neutral float-left" title="About" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mushroom_v2.html" class="btn btn-neutral float-right" title="Introduction to Datascience" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Parker Bremer.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
